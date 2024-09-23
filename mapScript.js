@@ -1,12 +1,16 @@
 console.log("mapScript.js is loaded");
 
+// Access the global variables
+console.log('LAT', window.latitude);  // This should output the latitude
+console.log('LONG', window.longitude);  // This should output the longitude
+
 if (typeof googleMapsApiKey === 'undefined') {
     console.error("googleMapsApiKey is not defined. Ensure apiKeys.js is loaded correctly.");
 } else {
     console.log("Google Maps API key found:", googleMapsApiKey);
-    loadGoogleMaps();
 }
 
+// Load Google Maps function
 function loadGoogleMaps() {
     console.log("Loading Google Maps with API key:", googleMapsApiKey);
 
@@ -27,17 +31,23 @@ function loadGoogleMaps() {
     };
 }
 
+// Initialize the Google Map
 function initMap() {
+    console.log('Latitude:', window.latitude);
+    console.log('Longitude:', window.longitude);
+
     const map = new google.maps.Map(document.getElementById('map'), {
         zoom: 10,
-        center: { lat: 37.7749, lng: -122.4194 } // Center map on San Francisco
+        center: { lat: 21.434927121763877, lng: 39.21677542419057 }  // Default location
     });
 
     const directionsService = new google.maps.DirectionsService();
     const directionsRenderer = new google.maps.DirectionsRenderer({ map: map });
 
-    const origin = { lat: 37.419734, lng: -122.0827784 };
-    const destination = { lat: 37.417670, lng: -122.079595 };
+    // Use the global variables for latitude and longitude
+    const destination = { lat: parseFloat(window.latitude), lng: parseFloat(window.longitude) };
+
+    const origin = { lat: 21.434927121763877, lng: 39.21677542419057 };  // Example origin
 
     const request = {
         origin: origin,
@@ -59,7 +69,7 @@ function initMap() {
     });
 }
 
-// Event listener for form submission
+// Add a form submission listener to trigger Google Maps update
 document.getElementById('customerForm').addEventListener('submit', function(event) {
     event.preventDefault();
     console.log("Form submitted, reloading Google Maps...");

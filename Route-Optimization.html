@@ -15,7 +15,9 @@
   <link href="css/tiny-slider.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
   <title>LogisTechs - AI Route Optimization</title>
-
+  <script type="module" src="formHandler.js"></script>
+  <script type="module" src="mapScript.js"></script>
+  
   <!-- Add some CSS for the map div -->
   <style>
     #map {
@@ -84,13 +86,20 @@
       <div class="block">
         <div class="row justify-content-center">
           <div class="col-md-8 col-lg-8 pb-4">
-            <form id="customerForm">
+            <form id="customerForm" onsubmit="showOutput(event)">
               <div class="form-group mb-4">
-                <label class="text-black" for="customer-number">Customer Number</label>
-                <input type="text" class="form-control" id="customer-number" required>
+                <label class="text-black" for="customerNumber">Customer Number</label>
+                <input type="text" class="form-control" id="customerNumber" required>
               </div>
               <button type="submit" class="btn btn-primary-hover-outline mt-3">Submit</button>
             </form>
+          <!-- Add this div to display lat and long -->
+          <div id="output">
+            <!-- The latitude and longitude will appear here after form submission -->
+          </div>
+
+            <script type="module" src="formHandler.js"></script>
+            <script type="module" src="mapScript.js"></script>
 
             <!-- Google Maps placeholder -->
             <div id="map"></div>
