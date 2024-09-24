@@ -14,7 +14,7 @@ body {
   font-weight: 400;
   line-height: 28px;
   color: #6a6a6a;
-  font-size: 14px;
+  font-size: 20px;
   background-color: #eff2f1; }
   
   #map {
@@ -102,7 +102,9 @@ a {
 
 .hero {
   background: #3b5d50;
-  padding: calc(4rem - 30px) 0 0rem 0; }
+  padding: calc(4rem - 30px) 0 0rem 0; 
+  margin-bottom: 50px;
+}
   @media (min-width: 768px) {
     .hero {
       padding: calc(4rem - 30px) 0 4rem 0; } }
@@ -308,6 +310,17 @@ a {
       border-radius: 50%;
       right: -8px;
       bottom: 0; }
+      /* Container to limit the image size and apply border-radius */
+    .feature-section img {
+      width: 100%;
+      max-width: 500px; /* Set max width for the image */
+      border-radius: 15px; /* Curved corners */
+      object-fit: cover; /* Ensure the image covers the space without stretching */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for better visual effect */
+      display: block; /* Ensure image is displayed as block */
+      margin: 0 auto; /* Center the image horizontally */
+    }
+
   .feature h3 {
     font-size: 14px;
     color: #2f2f2f; }
@@ -315,6 +328,31 @@ a {
     font-size: 14px;
     line-height: 22px;
     color: #6a6a6a; }
+
+/* White Box container */
+.white-box {
+  background-color: #fff;  /* White background */
+  border-radius: 15px;     /* Rounded corners */
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 30px;
+  width: 100%;            /* Full width */
+  margin-bottom: 40px;     /* Spacing below the box */
+}
+
+/* Ensures the image is responsive */
+.white-box img {
+  border-radius: 15px;
+  max-width: 90%;
+  height: auto;
+}
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 768px) {
+  .white-box .row {
+    flex-direction: column;  /* Stack the content vertically on mobile */
+  }
+}
+
 
 .we-help-section {
   padding: 7rem 0; }
