@@ -1,14 +1,12 @@
-// formHandler.js
-
 console.log("formHandler.js is loaded and running");
 
 // Import Firestore instance from firebaseConfig.js
 import { db } from './firebaseConfig.js';
 import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
 
-// Declare global variables for latitude and longitude
-window.latitude = "N/A";
-window.longitude = "N/A";
+// Declare global variables
+let latitude = "N/A";
+let longitude = "N/A";
 
 // Function to handle form submission and fetch data from Firestore
 async function showOutput(event) {
@@ -27,13 +25,14 @@ async function showOutput(event) {
         if (docSnap.exists()) {
             console.log("Document Data: ", docSnap.data());
             const data = docSnap.data();
-            window.latitude = data.latitude || "N/A";
-            window.longitude = data.longitude || "N/A";
+            gpsLocation = data.gpsLocation || "N/A";
+            latitude = data.latitude || "N/A";
+            longitude = data.longitude || "N/A";
 
             // Update the display for latitude and longitude
             document.getElementById('latlong-display').innerHTML = `
-                <strong>Latitude:</strong> ${window.latitude} <br>
-                <strong>Longitude:</strong> ${window.longitude}
+                <strong>Latitude:</strong> ${latitude} <br>
+                <strong>Longitude:</strong> ${longitude}
             `;
 
             // After updating the latitude and longitude, reload Google Maps
