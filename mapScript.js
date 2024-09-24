@@ -1,9 +1,5 @@
 console.log("mapScript.js is loaded");
 // Import the variables
-import { latitude, longitude } from './formHandler.js';
-// Access the global variables
-console.log('LAT', window.latitude); // This should output the latitude
-console.log('LONG', window.longitude); // This should output the longitude
 
 if (typeof googleMapsApiKey === 'undefined') {
 console.error("googleMapsApiKey is not defined. Ensure apiKeys.js is loaded correctly.");
