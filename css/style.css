@@ -434,7 +434,7 @@ a.more {
     max-width: 500px; /* Set max width for the image */
     border-radius: 15px; /* Curved corners */
     object-fit: cover; /* Ensure the image covers the space without stretching */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for better visual effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     display: block; /* Ensure image is displayed as block */
     margin: 0 auto; /* Center the image horizontally */
 }
